@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type = 'text/css' href="authorization.css">
+    <link rel="stylesheet" type = 'text/css' href="general_style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="images/favicon.ico" />
+
+    <title>Регистрация | Рецензия.ру</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="content">
+            <div class="container">
+                <div class="registration">
+                    <div class="registration__block">
+                        <div class="registration__image">
+                            <a href = "index.html"><img src="images/logo.png"/ class = 'scale2'>
+                            <figcaption class="registration__figcaption">DigitaLib</figcaption></a>
+                        </div>
+                            <div class="text-field__icon registration__password">
+                                <form action="{% url 'register' %}" method="post">
+                                            <div class="text-field__icon registration__password">
+                                            <div class="text-field__icon registration__name-register">
+                                                <div class="text-field__icon registration__password">
+                                                    <input
+                                                        type="password"
+                                                        name="password"
+                                                        class="form-control"
+                                                        id="id_password"
+                                                        placeholder='Имя'
+                                                        required
+                                                    />
+                                                </div>
+                                        </div>
+                            </div>
+                            <div class="text-field__icon registration__password">
+                                <input
+                                    type="password"
+                                    name="password"
+                                    class="form-control"
+                                    id="id_password"
+                                    placeholder='Пароль'
+                                    required
+                                />
+                            </div>
+                            <div class="text-field__icon registration__password">
+                                <input
+                                    type="password"
+                                    name="password"
+                                    class="form-control"
+                                    id="id_password"
+                                    placeholder='Повторите пароль'
+                                    required
+                                />
+                            </div>
+                        </div>
+                        <div class="registration__link-position">
+                            <a href="#" class = 'registration__link-style'>Забыли пароль?</a>
+                        </div>
+                        <div class = 'registration__button registration__register'>
+                            <button type="submit" class="registration__submit-button">Вход</button>
+                        </div>
+                        <div class="registration__register-link">
+                            <a href="login.html" class="registration__register-href">Зарегистрируйтесь</a>, если у вас еще нет аккаунта 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

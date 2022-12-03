@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type = 'text/css' href="main_style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <script type="text/javascript" src={% static "C:\Users\ннн\Desktop\site_recensia\reviews\static\reviews\email_script.js" %}></script>
+    <script type="text/javascript" src={% static "C:\Users\ннн\Desktop\site_recensia\reviews\static\reviews\send.js" %}></script>
+    <script type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+            (function(){
+                emailjs.init("oiUU7d9wNAjEWpIuH");
+            })();
+       </script>
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    
+    <title>Рецензия.ру</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="window">
+            <div class="container">
+                <div class="top">
+                    <header class="header">
+                        <div class="header__logo">
+                            <a href="index.html"><img src="images/logo.png" alt="" class="header__image"></a>
+                            <span class="header__title">Рецензия.ру</span>
+                        </div>
+
+                        <div class="header__section">
+                            <img src="images/menu.png" alt="" class="section__icon">
+                            <span class="header__section-name">Меню</span>
+                        </div>
+
+                        <div class="header__line">
+                            <navbar class="header__navigation">
+                                <form href="index.html">
+                                    <a href="index.html" class="header__button header__animation" value="Новинки">Главная</a>
+                                </form>
+                                <form href="modern.html">
+                                    <a href="modern.html" class="header__button" value="Новинки">Современное</a>
+                                </form>
+                                <form href="modern.html">
+                                    <a href="popular.html" class="header__button" value="Новинки">Популярное</a>
+                                </form>
+                            </navbar>
+                            <div class="header__search">
+                                <form action="{% url "show_searched" %}" method="post" class="form__flex">
+                                    <input type="search" class="header__input" name="top_input" id="top_input" placeholder="Введите название книги">
+                                    <input type = 'image' id = 'submit_box' name = '' value = '&nbsp;' class = 'header__submit' src = "images/search_img.png">
+                                </form>
+                            </div>
+                            <div class="header__auth">
+                                <div class="header__label">Ауторизация</div>
+                                <a href="login.html" class="header__reg">Вход</a>
+                                <a href="register.html" class="header__reg">Регистрация</a>
+                            </div>
+                        </div>
+                    </header>
+                </div>
+
+
+        <div class = 'book'>
+            <div class="book__title">Книга <span class = 'book__star'>★</span><span class = "book__rank">5+</span></div>
+            <div class="book__row">
+                <div class="book__item">
+                        <img src="images/white_fang.jpg" class = 'book__image'>
+                </div>
+                <div class="book__description">
+                    <div class="book__info">Джек Лондон (1876 - 1916) – английский писатель, мастерски владеющий словом, он создал огромное количество популярных и по сей день романов, повестей и коротких рассказов. В эту книгу вошла повесть "Белый Клык", о волчонке-собаке, которому суждено стать сильным, пережив нелегкие жизненные испытания. Для среднего школьного возраста.</div>
+                    <div class="book__author"><a href="https://ru.wikipedia.org/wiki/%D0%94%D0%B6%D0%B5%D0%BA_%D0%9B%D0%BE%D0%BD%D0%B4%D0%BE%D0%BD" class="book__author-href">Джек Лондон</a></div>
+                </div>
+            </div>
+            <div class="book__add">
+                <form action = {% url 'add_review' arg=book.id %}>
+                    <a href = "new_review.html" class="book__button"><span>Добавить</span></a>
+                </form>
+            </div>
+        </div>
+        
+        <div class = 'review-label'>Список рецензий:</div>
+            <div class="review">
+                <div class="review__content">
+                    <div class = 'review__name'>
+                        ilia
+                        <span class = 'review__author'>написал рецензию</span>
+                    </div>
+                    <div class="review__border">
+                        <div class = 'review__mark'>
+                            <span class = 'review__star'>★</span>Необычная книга о необычном волке
+                        </div>
+                        <div class = 'review__text'>В повести "Зов предков", предшедствующей "Белому клыку", Джек Лондон описал трансформацию собаки в волка. Повесть "Белый клык", написанную тремя годами позже и описывающую обратный процесс перевоплощения волка в собаку, Лондон называет не продолжением "Зова предков", а его ответвлением (или как бы сейчас сказали, его спин-оффом).</div>
+                        <div class = 'review__date'>20.01.2022</div>
+                        
+
+                    </div>
+                    <form action = {% url 'like_score' arg1=book.pk arg2=review.pk %} method='POST' class="like_me">   
+                        <span class='like_button'>
+
+                                <input type = 'image' name = 'review_id' value = '{{review.id}}' class="review__rate" src = "images/unlike.png">
+                        </span>
+    
+                    </form>
+            </div>
+        </div>
+
+
+            <div class = 'distance_review'>
+            <div class = 'empty_label'><p>Список рецензий пустой</p></div>
+        </div>
+
+                <div class="digest">
+                    <div class="digest__row">
+                        <div class="digest__position">
+                            <img src="images/digest.png" alt="" class="digest__image">
+                        </div>
+                        <div class="digest__text">
+                            <p>Ежемесячные дайджесты и самое</p> важное из мира книг — в вашей почте
+                        </div>
+                        <div class="digest__input">
+                            <input type = 'text' class = 'subscribe_box' name = 'text' placeholder = 'Ваш email'>
+                            <input type = 'submit' class = 'subscribe_button' name = 'menu' value = 'Подписаться' onclick='sendMail()'>
+                        </div>
+                    </div>
+                </div>
+
+                <footer class="footer">
+                    <div class="footer__frame">
+                        <div class="footer__block_1">
+                            <div class="footer__ceiling">
+                                <a href="https://vk.com/"><img src="images/vk.png" alt="" class="footer__network"></a>
+                                <a href="https://ok.ru/"><img src="images/ok.png" alt="" class="footer__network"></a>
+                                <a href="https://www.instagram.com/"><img src="images/insta.png" alt="" class="footer__network footer__insta"></a>
+                            </div>
+                            <div class="footer__floor">
+                                <span class="footer__copyright">© Рецензия.ру 2022-2022</span>
+                                <span class="footer__age">12+</span>
+                            </div>
+                        </div>
+                        <div class="footer__block_2">
+                            <div class="footer__list">
+                                <div class="footer__recensia">
+                                    <div class="footer__title">Рецензия.ру</div>
+                                    <li><a href="#" class="footer__point">О проекте</a></li>
+                                    <li><a href="#" class="footer__point">Команда</a></li>
+                                </div>
+                                <div class="footer__cooperation">
+                                    <div class="footer__title">Сотрудничество</div>
+                                    <li><a href="#" class="footer__point">Реклама</a></li>
+                                    <li><a href="#" class="footer__point">Услуги</a></li>
+                                </div>
+                                <div class="footer__help">
+                                    <div class="footer__title">Поддержка</div>
+                                    <li><a href="#" class="footer__point">Пожаловаться</a></li>
+                                    <li><a href="#" class="footer__point">Техническая поддержка</a></li>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+</body>
